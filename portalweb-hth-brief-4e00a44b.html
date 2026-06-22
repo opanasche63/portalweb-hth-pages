@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华体会 · 整理视角 · 数字索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4f3f0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+      line-height: 1.7;
+      color: #1e1e1e;
+    }
+    /* 深色头图 - 杂志专题风格 */
+    .hero {
+      background: #1a1c22;
+      background-image: radial-gradient(circle at 20% 40%, #2a2e38 0%, #101116 90%);
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(to bottom, transparent, #f4f3f0);
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: #ede9de;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .hero .subhead {
+      font-size: 1.2rem;
+      font-weight: 350;
+      color: #bcb6a8;
+      max-width: 600px;
+      margin: 0.5rem auto 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1rem;
+    }
+    .hero .meta-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.06);
+      color: #cbc3b2;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    /* 主内容区域 - 浅色正文 */
+    .feature-section {
+      max-width: 1024px;
+      margin: -1.5rem auto 0;
+      padding: 2.5rem 2rem 3rem;
+      background: #ffffff;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.03);
+      border-radius: 28px 28px 0 0;
+    }
+    .feature-section p {
+      margin-bottom: 1.6rem;
+      font-size: 1.02rem;
+      color: #2c2c2c;
+    }
+    .feature-section p:first-of-type::first-letter {
+      font-size: 2.8rem;
+      float: left;
+      line-height: 1;
+      margin-right: 0.5rem;
+      color: #7d6e5a;
+      font-weight: 400;
+    }
+    .section-label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8f8678;
+      margin: 2.5rem 0 0.5rem;
+      border-left: 3px solid #b3a086;
+      padding-left: 0.8rem;
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1.8rem;
+      margin: 1.8rem 0 2.2rem;
+    }
+    .card-item {
+      background: #f8f6f1;
+      border-radius: 20px;
+      padding: 1.5rem 1.2rem;
+      border: 1px solid #eae6de;
+      transition: box-shadow 0.2s;
+    }
+    .card-item h3 {
+      font-weight: 450;
+      font-size: 1.1rem;
+      color: #35302a;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+    .card-item p {
+      font-size: 0.92rem;
+      color: #49453e;
+      margin-bottom: 0.2rem;
+    }
+    .card-item:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+    .faq-mini {
+      background: #f8f6f1;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0;
+      border-left: 4px solid #b3a086;
+    }
+    .faq-mini dt {
+      font-weight: 500;
+      color: #2b2824;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .faq-mini dt:first-of-type {
+      margin-top: 0;
+    }
+    .faq-mini dd {
+      margin-left: 0;
+      padding-left: 0.5rem;
+      color: #4a4640;
+      font-size: 0.95rem;
+      border-bottom: 1px dashed #e4ddd2;
+      padding-bottom: 0.6rem;
+      margin-bottom: 0.2rem;
+    }
+    /* 强调色链接 */
+    a {
+      color: #996a4a;
+      text-decoration: none;
+      font-weight: 450;
+      transition: all 0.15s;
+      border-bottom: 1px dotted rgba(153, 106, 74, 0.2);
+    }
+    a:hover {
+      color: #543e2c;
+      border-bottom-color: #7a5a3f;
+    }
+    /* 页尾 */
+    .page-footer {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 2rem 2rem 2.8rem;
+      background: #f4f3f0;
+      border-radius: 0 0 28px 28px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5f5950;
+      border-top: 1px solid #e1dbd0;
+    }
+    .page-footer .foot-note {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #8a8275;
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .hero .subhead {
+        font-size: 1rem;
+      }
+      .feature-section {
+        padding: 1.8rem 1.2rem 2rem;
+        border-radius: 18px 18px 0 0;
+      }
+      .grid-cards {
+        gap: 1rem;
+      }
+      .faq-mini {
+        padding: 1.2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>华体会</h1>
+    <div class="subhead">信息索引 · 内容归档 · 专题整理</div>
+    <span class="meta-tag">数字资料 · 自然梳理</span>
+  </header>
+
+  <main class="feature-section">
+    <p>
+      当我们谈论网络信息的组织方式时，常常会注意到那些既保持清晰脉络、又兼顾阅读节奏的索引平台。<a href="https://portalweb-hth.com.cn">华体会</a>正是一个值得留意的信息归集节点——它并非简单的聚合，而更接近于一种线索式的资料编排，让访客能够依据自身兴趣，按图索骥地找到相关主题的延伸内容。
+    </p>
+
+    <span class="section-label">整理逻辑</span>
+    <p>
+      从实际使用者的角度观察，平台在内容分类上采取了较为克制的层级结构，避免过度细分带来的冗余感。每一个主版块都保留了适当的弹性，允许信息以自然的方式流动。这样的设计思路，减少了浏览时的认知负担，也提升了信息查找的直觉性。对于需要持续跟踪某类主题的人来说，这种索引方式显得格外友好。
+    </p>
+
+    <div class="grid-cards">
+      <div class="card-item">
+        <h3>主题脉络</h3>
+        <p>按内容领域划分，而非简单按时间线排列，便于横向对比与深度阅读。</p>
+      </div>
+      <div class="card-item">
+        <h3>交叉索引</h3>
+        <p>相关条目之间设有轻量链接，在不打断阅读的前提下拓展信息面。</p>
+      </div>
+      <div class="card-item">
+        <h3>归档风格</h3>
+        <p>保留历史版本的索引快照，适合做资料回溯与演变分析。</p>
+      </div>
+    </div>
+
+    <span class="section-label">使用场景参考</span>
+    <p>
+      对于日常的信息搜集者而言，这里更像一个安静的资料室。没有弹窗干扰，也没有催促式的引导。你可以按需翻阅不同板块，也可以把感兴趣的条目加入自己的笔记体系。很多用户反馈，这里的整理方式让他们更容易形成自己的知识关联，而不是被动接收碎片。
+    </p>
+
+    <div class="faq-mini">
+      <dl>
+        <dt>❖ 这个索引站适合哪些人？</dt>
+        <dd>适合对网络内容有整理习惯的人，也适合需要定期查阅特定主题资料的读者。没有身份门槛，打开即用。</dd>
+        <dt>❖ 内容更新频率如何？</dt>
+        <dd>保持稳健的更新节奏，更注重内容的质量筛选而非数量堆叠。同时保留历史索引入口，便于对比。</dd>
+        <dt>❖ 是否支持移动端顺畅浏览？</dt>
+        <dd>页面布局针对不同屏幕做了适配，无论手机还是桌面都能保持一致的阅读体验。</dd>
+      </dl>
+    </div>
+
+    <p>
+      在信息过载的时代，一个懂得节制的索引平台反而显得珍贵。如果你也倾向于有条理地获取内容，不妨把<a href="https://portalweb-hth.com.cn">华体会</a>加入你的书签列表。它不会喧宾夺主，只会在你需要的时候，提供一条清晰可循的路径。
+    </p>
+  </main>
+
+  <footer class="page-footer">
+    <div>基于资料整理视角 · 专题索引页</div>
+    <div class="foot-note">内容均来自公开信息整理 · 仅作索引参考</div>
+  </footer>
+</body>
+</html>
