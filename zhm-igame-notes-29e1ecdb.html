@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 资料整理站 | 索引 & 指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: #f4f8fa;
+            color: #1e2b32;
+            line-height: 1.7;
+            padding: 0 20px;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* ---- hero ---- */
+        .hero {
+            background: linear-gradient(135deg, #e0f0f5 0%, #cde4ec 100%);
+            padding: 3rem 2rem;
+            border-radius: 32px;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 90, 100, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #0b3e4a;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 1.2rem;
+            font-size: 1.1rem;
+            color: #2b5a66;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #0f6b7a;
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        /* ---- grid cards ---- */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 450;
+            color: #0b4a56;
+            margin: 2.5rem 0 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 4px;
+            background: #2fa3b3;
+            border-radius: 4px;
+            margin-top: 6px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.6rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.6rem 1.2rem;
+            box-shadow: 0 4px 14px rgba(0, 80, 90, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #d7e9ef;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(23, 123, 140, 0.12);
+            border-color: #aad0db;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #125a68;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3::before {
+            content: '📌';
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2e4d58;
+            margin-bottom: 0.3rem;
+        }
+
+        .card .badge {
+            display: inline-block;
+            background: #deeff4;
+            color: #0b5f6e;
+            font-size: 0.75rem;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.6rem;
+        }
+
+        /* ---- 说明区 + 场景段落 ---- */
+        .info-block {
+            background: #f0f9fc;
+            padding: 2rem 2rem;
+            border-radius: 28px;
+            margin: 2.2rem 0;
+            border-left: 6px solid #2fa3b3;
+        }
+
+        .info-block p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #1f3e47;
+        }
+
+        .info-block strong {
+            color: #0b6b7a;
+        }
+
+        .highlight-link {
+            color: #0b6b7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #a8d8e4;
+            transition: border 0.2s;
+        }
+
+        .highlight-link:hover {
+            border-bottom-color: #0b6b7a;
+        }
+
+        /* ---- FAQ 摘要 ---- */
+        .faq-summary {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 4px 16px rgba(0, 70, 80, 0.04);
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            color: #0b4a56;
+            margin-bottom: 1.4rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed #c9dfe7;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #074854;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .faq-q::before {
+            content: '❓';
+            font-size: 0.9rem;
+        }
+
+        .faq-a {
+            color: #2f5a66;
+            padding-left: 1.6rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-a a {
+            color: #0f6b7a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* ---- 底部链接 ---- */
+        .footer-links {
+            text-align: center;
+            padding: 2.5rem 0 1.5rem;
+            border-top: 1px solid #cfe3ea;
+            margin-top: 1.5rem;
+        }
+
+        .footer-links p {
+            color: #3a6a76;
+            font-size: 0.95rem;
+        }
+
+        .footer-links .sentence-link {
+            color: #0f6b7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #b4dbe6;
+        }
+
+        .footer-links .sentence-link:hover {
+            border-bottom-color: #0f6b7a;
+        }
+
+        .footer-note {
+            font-size: 0.82rem;
+            color: #7099a5;
+            margin-top: 0.8rem;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .info-block {
+                padding: 1.5rem 1rem;
+            }
+
+            .faq-summary {
+                padding: 1.2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- hero -->
+        <div class="hero">
+            <h1>信息·索引·整理</h1>
+            <p>从日常资料归档出发，把散落的游戏资讯、版本记录与工具链接收拢为一处。这里有关于 <strong><a href="https://zhm-igame.com" class="highlight-link" style="border-bottom:2px solid #8fcbd9;">爱游戏</a></strong> 的聚合笔记，不废话，不堆砌。</p>
+            <span class="tagline">📂 持续更新 · 专注索引</span>
+        </div>
+
+        <!-- 优势区：网格卡片 -->
+        <h2 class="section-title">为什么这样整理</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>按主题归档</h3>
+                <p>活动公告、版本更新、社区讨论——每类独立卡片，方便对照翻阅。</p>
+                <span class="badge">分类索引</span>
+            </div>
+            <div class="card">
+                <h3>链接直达</h3>
+                <p>每个条目直接关联原始来源，省去二次搜索，保持信息可溯。</p>
+                <span class="badge">可溯源</span>
+            </div>
+            <div class="card">
+                <h3>轻量快照</h3>
+                <p>只记录关键描述与日期，不放臃肿截图，页面清爽干净。</p>
+                <span class="badge">纯文本</span>
+            </div>
+            <div class="card">
+                <h3>定期校对</h3>
+                <p>每两周过一遍链接有效性，失效的标记移除，保持准确。</p>
+                <span class="badge">维护中</span>
+            </div>
+        </div>
+
+        <!-- 说明区 -->
+        <div class="info-block">
+            <p><strong>资料整理者的视角</strong> —— 许多朋友会在各个平台分享关于 <a href="https://zhm-igame.com" class="highlight-link">爱游戏</a> 的体验、攻略和疑问，但零散的信息很难回溯。这个页面试图充当一个「静态目录」，把值得留意的条目按时间或主题列出来，方便自己与他人快速定位。</p>
+            <p>内容主要来自官方公告、用户反馈以及公开的更新日志，不包含主观评价，只做摘录与归类。如果你发现某个链接已经失效，或者有新的资料希望收录，可以沿着底部的方式反馈。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h2>常见问题 · 摘要</h2>
+            <div class="faq-item">
+                <div class="faq-q">资料多久更新一次？</div>
+                <div class="faq-a">目前保持每两周整理一轮，遇到较大版本变化会临时增补。订阅 <a href="https://zhm-igame.com">爱游戏</a> 页面可看到最近更新标记。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">为什么这里没有下载链接？</div>
+                <div class="faq-a">本页定位是信息索引，不直接托管安装包。所有官方渠道均整理在对应卡片中，通过 <a href="https://zhm-igame.com">爱游戏</a> 可以找到各平台入口。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">可以转载或分享这里的整理内容吗？</div>
+                <div class="faq-a">当然可以。这些资料本就是公开信息的汇总，转载时注明出处即可，也希望你能顺手把链接带到更多需要的人。</div>
+            </div>
+        </div>
+
+        <!-- 底部链接 + 句子嵌入 -->
+        <div class="footer-links">
+            <p>如果你恰好也在翻找游戏相关的历史资料，不妨把 <a href="https://zhm-igame.com" class="sentence-link">爱游戏</a> 这个索引页存一下，或许哪天就派上用场了。</p>
+            <p class="footer-note">📋 所有内容仅为信息整理，不代表官方立场 · 由个人维护</p>
+        </div>
+    </div>
+</body>
+</html>
