@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>爱游戏 - 移动端游戏兴趣介绍站</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      background: #f0f7fa;
+      color: #1a2e3f;
+      line-height: 1.6;
+      padding: 0 16px;
+    }
+
+    .wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(145deg, #0b4f6c 0%, #1b7e8e 100%);
+      color: white;
+      border-radius: 32px;
+      padding: 40px 28px 36px;
+      margin-bottom: 28px;
+      box-shadow: 0 16px 28px -12px rgba(11, 79, 108, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -18px;
+      top: -24px;
+      width: 130px;
+      height: 130px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .accent {
+      color: #b6e6f0;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 90%;
+      margin-top: 12px;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .decoration {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      margin-top: 16px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 24px 20px;
+      box-shadow: 0 4px 12px rgba(0, 40, 50, 0.05);
+      margin-bottom: 20px;
+      border: 1px solid #dceef2;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 60, 70, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0a4a5f;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h2 .badge {
+      background: #b1dce8;
+      font-size: 0.7rem;
+      padding: 2px 10px;
+      border-radius: 30px;
+      font-weight: 500;
+      color: #064f60;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #1f4051;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .grid-item {
+      background: #f3fafd;
+      border-radius: 18px;
+      padding: 14px 12px;
+      border-left: 4px solid #2b9eb3;
+    }
+
+    .grid-item strong {
+      display: block;
+      font-size: 0.95rem;
+      color: #094b5c;
+      margin-bottom: 4px;
+    }
+
+    .grid-item span {
+      font-size: 0.85rem;
+      color: #2b6677;
+    }
+
+    /* 说明区 用列表 */
+    .info-list {
+      list-style: none;
+      margin: 10px 0 4px;
+    }
+
+    .info-list li {
+      padding: 8px 0 8px 28px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%232b9eb3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') left center no-repeat;
+      background-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    /* FAQ摘要 */
+    .faq-item {
+      border-bottom: 1px solid #e1edf2;
+      padding: 14px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #06465a;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: #2b5c6b;
+    }
+
+    .faq-a a {
+      color: #117a8f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+
+    /* 底部 */
+    .footer-note {
+      text-align: center;
+      padding: 28px 10px 12px;
+      color: #587b86;
+      font-size: 0.8rem;
+      border-top: 1px solid #c9dfe6;
+      margin-top: 12px;
+    }
+
+    .footer-note a {
+      color: #1b7d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* 手动响应式 */
+    @media (max-width: 360px) {
+      .hero h1 { font-size: 1.7rem; }
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+
+    @media (min-width: 600px) {
+      body { padding: 0 32px; }
+      .wrap { max-width: 720px; }
+      .hero { padding: 52px 40px; }
+    }
+
+    /* 点缀小标签 */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 4px;
+    }
+
+    .pill {
+      background: #e3f0f5;
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      color: #0f6278;
+      border: 1px solid #bcdae3;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- hero区 -->
+  <div class="hero">
+    <h1>爱游戏 · 移动<br><span class="accent">兴趣与分享</span></h1>
+    <p>一个围绕移动端游戏内容、轻资讯与社区讨论的小型集合站。方便同好快速了解游戏动态，沉淀个人体验。</p>
+    <div class="decoration">📱 专注中文移动游戏爱好者</div>
+  </div>
+
+  <!-- 优势区：网格卡片 -->
+  <div class="card">
+    <h2>为什么选择这里 <span class="badge">轻量 · 聚合</span></h2>
+    <div class="grid-2col">
+      <div class="grid-item">
+        <strong>🎯 内容聚焦</strong>
+        <span>围绕移动端游戏，不泛泛而谈，减少信息噪音。</span>
+      </div>
+      <div class="grid-item">
+        <strong>🧩 实用视角</strong>
+        <span>从玩家实际需求出发，整理游戏介绍、版本动向与实用提示。</span>
+      </div>
+      <div class="grid-item">
+        <strong>📂 结构清晰</strong>
+        <span>卡片与列表式阅读，方便快速浏览，不浪费时间。</span>
+      </div>
+      <div class="grid-item">
+        <strong>🔄 持续更新</strong>
+        <span>站内内容跟随移动游戏生态逐步扩充，保持时效性。</span>
+      </div>
+    </div>
+    <div class="pill-group">
+      <span class="pill">热门手游</span>
+      <span class="pill">单机移植</span>
+      <span class="pill">独立游戏</span>
+      <span class="pill">游戏杂谈</span>
+    </div>
+  </div>
+
+  <!-- 说明区：站点介绍与可信说明 -->
+  <div class="card">
+    <h2>关于这个站点</h2>
+    <p style="margin-bottom: 6px;">
+      <a href="https://zhmobile-igame.com" style="color:#117a8f; text-decoration: underline; text-underline-offset: 2px; font-weight:600;">爱游戏</a> 是一个非官方、非商业的个人兴趣站点，主要收录移动端游戏的相关介绍、个人向测评摘要以及游戏文化随笔。站点内容均基于公开信息与个人体验编写，不提供任何破解、外挂或违规资源。
+    </p>
+    <p style="margin-top: 8px;">
+      站内所有游戏描述、截图引用均标注来源，尊重开发者与发行方的知识产权。如果你发现任何内容存在偏差或侵权嫌疑，欢迎通过站内渠道反馈，我们会在核实后及时调整。
+    </p>
+    <ul class="info-list">
+      <li>内容方向以中文移动游戏玩家视角为主，力求客观、清晰。</li>
+      <li>不诱导点击、不嵌入恶意广告，保持页面简洁。</li>
+      <li>不定期更新游戏推荐、版本笔记与常见问题梳理。</li>
+    </ul>
+  </div>
+
+  <!-- FAQ摘要 -->
+  <div class="card">
+    <h2>常见疑问 <span class="badge">快速了解</span></h2>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ 站内的游戏推荐是否带有个人偏好？</div>
+      <div class="faq-a">是的，每篇介绍都融入了作者的实际体验与主观感受，但会尽量标注游戏类型、优缺点，供你自行判断。你可以把 <a href="https://zhmobile-igame.com">爱游戏</a> 当作一个游戏同好的参考笔记。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ 站点会收录全部热门手游吗？</div>
+      <div class="faq-a">不会刻意追求「全覆盖」。目前以编辑个人感兴趣、以及社区中讨论度较高的移动端游戏为主，未来可能根据反馈增加特定品类。完整列表建议直接浏览网站。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ 能否在站内投稿或提供建议？</div>
+      <div class="faq-a">可以通过站点底部提供的联系方式（邮件/社交媒体）与维护者交流。投稿前请确保内容符合站点调性，且不涉及侵权或敏感信息。</div>
+    </div>
+
+    <div style="margin-top: 10px; font-size:0.85rem; color:#3a6f7d; border-left: 3px solid #8fcbd9; padding-left: 12px;">
+      💡 更多 FAQ 内容正在整理中，你也可以直接在 <a href="https://zhmobile-igame.com">爱游戏</a> 首页浏览最新文章。
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-note">
+    <p style="margin-bottom: 6px;">
+      🕹️ 移动端游戏爱好者的信息角落 · <a href="https://zhmobile-igame.com">爱游戏</a>
+    </p>
+    <p style="opacity:0.7;">内容仅供参考，不构成任何投资或消费建议。<br>© 爱游戏 · 非官方站点</p>
+  </div>
+
+</div>
+</body>
+</html>
