@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · 爱游戏知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f7f8fa;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: #1e2a3a;
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      padding: 2.5rem 2rem;
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 1.75rem 1.2rem;
+        border-radius: 20px;
+      }
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+      color: #0b1a2f;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #5a6e7e;
+      margin-bottom: 2rem;
+      border-left: 3px solid #d0dae6;
+      padding-left: 1rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #eef1f5;
+      color: #1f2e40;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-top: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #2a3e52;
+    }
+
+    p, li {
+      font-size: 0.975rem;
+      color: #2c3e50;
+    }
+
+    p {
+      margin-bottom: 1.1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0.2rem;
+      margin-bottom: 1.4rem;
+    }
+
+    ul li {
+      padding-left: 1.4rem;
+      position: relative;
+      margin-bottom: 0.6rem;
+    }
+
+    ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #6c7e94;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* 卡片 / 提示框 */
+    .info-card {
+      background: #f2f5f9;
+      border-radius: 16px;
+      padding: 1.5rem 1.6rem;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .info-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-card .label {
+      display: inline-block;
+      background: #d9e0ea;
+      padding: 0.1rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #1f3246;
+      margin-bottom: 0.8rem;
+    }
+
+    .tip-block {
+      background: #eef3f9;
+      border-left: 4px solid #8fa6c0;
+      padding: 1.2rem 1.4rem;
+      border-radius: 0 12px 12px 0;
+      margin: 1.8rem 0;
+    }
+
+    .tip-block p {
+      margin-bottom: 0.2rem;
+    }
+
+    .tip-block strong {
+      color: #1f3a5f;
+      font-weight: 500;
+    }
+
+    /* 目录感布局 —— 简洁网格 */
+    .dir-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.6rem 0 2rem;
+    }
+
+    @media (max-width: 500px) {
+      .dir-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dir-item {
+      background: #f5f8fc;
+      border-radius: 14px;
+      padding: 1.2rem 1.2rem;
+      transition: background 0.15s;
+    }
+
+    .dir-item:hover {
+      background: #e9eff7;
+    }
+
+    .dir-item .num {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: #d3dce8;
+      color: #1f3246;
+      border-radius: 12px;
+      padding: 0.1rem 0.65rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .dir-item h4 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      color: #0f253c;
+    }
+
+    .dir-item p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      color: #40607a;
+    }
+
+    /* 相关信息区 */
+    .related-box {
+      margin-top: 2rem;
+      padding: 1.4rem 1.5rem;
+      background: #fafbfd;
+      border: 1px solid #e3e9f0;
+      border-radius: 18px;
+    }
+
+    .related-box p {
+      font-size: 0.92rem;
+    }
+
+    .faq-summary {
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .faq-summary dt {
+      font-weight: 500;
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
+      color: #1b3147;
+      font-size: 0.95rem;
+    }
+
+    .faq-summary dd {
+      margin-left: 0.2rem;
+      font-size: 0.9rem;
+      color: #3d5872;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e3e9f0;
+      margin: 2rem 0 0.8rem;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: #6f859b;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    a {
+      color: #1c4d7c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.12s;
+    }
+
+    a:hover {
+      border-bottom-color: #1c4d7c;
+    }
+
+    .keep-link {
+      border-bottom: 1px solid #cbd8e6;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>爱游戏 · 简明指南</h1>
+  <div class="subhead">知识库 · 访问提醒 · 信息索引</div>
+
+  <!-- hero 简述 -->
+  <p>欢迎来到 <a href="https://zhmain-igame.com">爱游戏</a> 的知识库索引页。这里不提供冗长教程，而是梳理出几条简明指引与提醒，帮助你更顺畅地了解这个平台。无论你是初次接触还是希望快速回顾要点，都可以从下方目录区域开始。</p>
+
+  <!-- 目录感布局：四个方向 -->
+  <div class="dir-grid">
+    <div class="dir-item">
+      <span class="num">01 了解</span>
+      <h4>平台概况</h4>
+      <p><a href="https://zhmain-igame.com">爱游戏</a> 是一个围绕游戏内容与社区交流的站点，提供资讯、讨论与资源索引。</p>
+    </div>
+    <div class="dir-item">
+      <span class="num">02 准备</span>
+      <h4>访问前建议</h4>
+      <p>确认网络环境稳定，使用主流浏览器可获得更一致的显示效果。</p>
+    </div>
+    <div class="dir-item">
+      <span class="num">03 探索</span>
+      <h4>内容分类</h4>
+      <p>可留意站内导航分区：游戏百科、玩家笔记、更新日志等。</p>
+    </div>
+    <div class="dir-item">
+      <span class="num">04 留意</span>
+      <h4>安全提醒</h4>
+      <p>注意核对链接域名，勿通过非官方渠道提交个人信息。</p>
+    </div>
+  </div>
+
+  <!-- 提示区 -->
+  <div class="tip-block">
+    <strong>🔍 访问提醒</strong>
+    <p>请直接通过浏览器地址栏输入 <span style="background:#e2e9f2; padding:0.1rem 0.5rem; border-radius:6px; font-family: monospace; font-size:0.9rem;">zhmain-igame.com</span> 或使用可信书签。部分第三方搜索可能显示相似名称的站点，注意甄别。</p>
+    <p style="margin-top:0.6rem;">如遇到页面加载异常，可稍后刷新或清除缓存后再试。平台没有强制要求注册即可浏览大部分内容。</p>
+  </div>
+
+  <!-- 说明区：简明特点 -->
+  <h2>几个值得了解的特点</h2>
+  <ul>
+    <li>内容组织偏向条目式，适合快速查找具体游戏或话题。</li>
+    <li>社区讨论区保留公开的帖子存档，方便回溯过往信息。</li>
+    <li>没有自动播放的多媒体内容，页面加载相对轻量。</li>
+    <li>站内搜索功能覆盖标题和正文，结果按更新时间排序。</li>
+  </ul>
+
+  <!-- 相关信息区 + FAQ 摘要 -->
+  <div class="related-box">
+    <h3 style="margin-top:0; border-bottom: none; padding-bottom:0;">📘 相关信息与常见疑问</h3>
+    <dl class="faq-summary">
+      <dt>是否需要注册才能阅读文章？</dt>
+      <dd>不需要。绝大部分内容对访客开放，部分互动功能（如回复、收藏）可能需登录。</dd>
+      <dt>网站主要面向哪类用户？</dt>
+      <dd>对游戏文化、单机/联机作品、行业动态感兴趣的玩家或研究者。内容不局限于热门大作。</dd>
+      <dt>是否有移动端适配？</dt>
+      <dd>页面采用响应式设计，但未提供独立 App。手机浏览器可直接使用。</dd>
+      <dt>遇到失效链接或错误信息怎么办？</dt>
+      <dd>可以记下页面标题与问题描述，通过站内反馈渠道告知维护者。</dd>
+    </dl>
+  </div>
+
+  <!-- 额外说明区：温和提醒 -->
+  <div class="info-card">
+    <span class="label">🪧 使用建议</span>
+    <p>如果你打算引用或转载来自 <a href="https://zhmain-igame.com">爱游戏</a> 的内容，建议先确认原页面的标注（如「知识共享」或「保留权利」）。保持对原作者的尊重也是社区良性循环的一部分。</p>
+    <p>另外，尽量避免使用过于老旧的浏览器版本，部分样式和交互可能无法正常展现。</p>
+  </div>
+
+  <hr>
+  <div class="footer-note">
+    此页面为独立索引页 · 内容基于公开信息整理 · 无诱导性表述
+  </div>
+
+</div>
+</body>
+</html>
