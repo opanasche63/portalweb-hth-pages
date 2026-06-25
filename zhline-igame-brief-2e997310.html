@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 知识库入口</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #faf7f2;
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 4rem;
+            min-height: 100vh;
+        }
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        /* 头部目录感 */
+        .hero {
+            margin-bottom: 3.5rem;
+            border-bottom: 2px solid #e5ddd3;
+            padding-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 450;
+            letter-spacing: 2px;
+            color: #3f3a33;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .hero h1 small {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #8f867b;
+            margin-left: auto;
+        }
+        .hero p {
+            margin-top: 0.8rem;
+            color: #5f584e;
+            font-size: 1rem;
+            max-width: 70%;
+        }
+
+        /* 卡片式信息区 */
+        .info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+        }
+        .section-card {
+            background: #fffffffa;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            padding: 1.8rem 2rem 2rem;
+            border: 1px solid #efe9e0;
+        }
+        .section-card h2 {
+            font-weight: 420;
+            font-size: 1.35rem;
+            color: #3d352e;
+            border-left: 4px solid #c9b8a5;
+            padding-left: 0.9rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+        .section-card p, .section-card li {
+            color: #423d36;
+            font-size: 0.98rem;
+        }
+        .section-card ul {
+            list-style: none;
+            padding-left: 0.5rem;
+        }
+        .section-card ul li {
+            padding: 0.35rem 0 0.35rem 1.2rem;
+            position: relative;
+        }
+        .section-card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #b3a597;
+            font-weight: bold;
+        }
+
+        /* 提示框 / 引用块 */
+        .callout {
+            background: #f2ede7;
+            border-left: 5px solid #bfa88f;
+            border-radius: 0 12px 12px 0;
+            padding: 1.2rem 1.6rem;
+            margin: 1.6rem 0 0.8rem;
+            font-style: normal;
+            color: #433e37;
+        }
+        .callout strong {
+            color: #584e42;
+            font-weight: 500;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+        .faq-item {
+            border-bottom: 1px dashed #e2d9cf;
+            padding-bottom: 0.7rem;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            color: #4c443b;
+        }
+        .faq-item .a {
+            color: #5f574c;
+            margin-top: 0.2rem;
+            font-size: 0.94rem;
+        }
+
+        .link-embed {
+            margin-top: 0.2rem;
+            display: inline;
+        }
+        a {
+            color: #7f6b57;
+            text-decoration: none;
+            border-bottom: 1px solid #d6c9bb;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        a:hover {
+            color: #4f3f30;
+            border-bottom-color: #9f8a75;
+        }
+
+        .related {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 2rem;
+            margin-top: 0.8rem;
+        }
+        .related span {
+            background: #f0eae2;
+            padding: 0.2rem 1rem 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #4f463b;
+            border: 1px solid #e3d9ce;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e5ddd3;
+            margin: 2.5rem 0 1rem;
+        }
+        footer {
+            font-size: 0.85rem;
+            color: #9a8f82;
+            text-align: center;
+            margin-top: 2.5rem;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 1.2rem 1rem 2.5rem; }
+            .hero h1 { font-size: 1.6rem; flex-wrap: wrap; }
+            .hero p { max-width: 100%; }
+            .section-card { padding: 1.3rem 1.2rem; }
+            .hero { margin-bottom: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 头部 —— 目录感入口 -->
+    <div class="hero">
+        <h1>
+            📖 爱游戏 · 知识库
+            <small>快速识别 · 一站索引</small>
+        </h1>
+        <p>这里整理了你需要的内容版块，帮助你在几秒内判断这个站点是否匹配你的需求。</p>
+    </div>
+
+    <div class="info-grid">
+
+        <!-- 说明区：网站定位 -->
+        <div class="section-card">
+            <h2>📌 说明 · 站点用途</h2>
+            <p>当你第一次访问 <a href="https://zhline-igame.com">爱游戏</a>，可能会好奇它的定位。简单来说，这是一个围绕游戏话题搭建的信息聚合与导航页面，提供分类索引、常见内容指向以及相关资源的梳理。不追求花哨的包装，而是让你快速建立对站点结构的认知。</p>
+            <div class="callout">
+                <strong>📎 一句话概括：</strong> 如果你在寻找与“游戏”相关的资料入口、内容分类、或想了解站内主要覆盖哪些方向，这里就是起点。
+            </div>
+        </div>
+
+        <!-- 特点区：内容布局逻辑 -->
+        <div class="section-card">
+            <h2>🧩 特点 · 布局逻辑</h2>
+            <ul>
+                <li><strong>目录优先</strong> —— 页面采用分区卡片形式，每个板块对应一类信息，减少浏览负担。</li>
+                <li><strong>轻量、克制</strong> —— 没有冗余的动效或诱导性文案，内容以实用和真实为原则。</li>
+                <li><strong>渐进式指引</strong> —— 从说明到提示再到 FAQ，节奏偏平缓，适合想要安静了解的用户。</li>
+                <li><strong>响应式</strong> —— 无论在手机还是桌面，都保持舒适的阅读宽度和间距。</li>
+            </ul>
+        </div>
+
+        <!-- 提示区 + 使用场景 -->
+        <div class="section-card">
+            <h2>💡 提示 · 使用场景</h2>
+            <p>以下场景可能帮助你更快决定如何使用这个页面：</p>
+            <div class="related">
+                <span>🏷️ 初次访问想了解全貌</span>
+                <span>📂 寻找特定内容分类</span>
+                <span>🔎 确认站点是否与游戏相关</span>
+                <span>🧭 将本站加入书签以便后续查看</span>
+            </div>
+            <div class="callout" style="margin-top: 1.2rem;">
+                <strong>⚡ 一个小建议：</strong> 你可以把当前页面当作一个静态目录，直接点击上方链接进入 <a href="https://zhline-igame.com">爱游戏</a> 主站，然后根据实际内容来验证是否满足你的预期。如果后续站内结构有调整，这个介绍页也会保持独立更新。
+            </div>
+        </div>
+
+        <!-- FAQ 摘要区 -->
+        <div class="section-card">
+            <h2>❓ 常见问题 · 摘要</h2>
+            <div class="faq-mini">
+                <div class="faq-item">
+                    <div class="q">Q: 这个网站主要提供什么？</div>
+                    <div class="a">A: 当前阶段它更像一个游戏相关的知识或资源索引页，内容围绕游戏话题展开，不涉及下载、充值或交易功能。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="q">Q: 页面上的链接都安全吗？</div>
+                    <div class="a">A: 所有内部链接均指向 <a href="https://zhline-igame.com">爱游戏</a> 自身域名，无第三方外链跳转，你可以在浏览器地址栏确认。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="q">Q: 介绍页本身会频繁改动吗？</div>
+                    <div class="a">A: 不会频繁变动，但会随着站点内容补充而优化布局。你可以随时回来参考最新版本。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 相关信息区 -->
+        <div class="section-card">
+            <h2>🔗 相关信息</h2>
+            <p>站点维护方未公开其他社交账号，目前唯一的公开入口就是 <a href="https://zhline-igame.com">爱游戏</a>。如果你对站内某个分类有疑问，或者发现内容需要修正，可以通过主站上的联系途径（如果有）进行反馈。以下是一些可能与本站关联的标签：</p>
+            <div class="related" style="margin-top: 0.8rem;">
+                <span>#游戏知识</span>
+                <span>#索引页</span>
+                <span>#内容导航</span>
+                <span>#静态入口</span>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.94rem; color: #6b6256;">本页面仅为辅助说明，不替代主站功能。所有内容以主站实际展示为准。</p>
+        </div>
+
+    </div>
+
+    <hr>
+    <footer>
+        <span>爱游戏 · 知识库介绍页 ｜ 仅作指引用途</span>
+    </footer>
+
+</div>
+</body>
+</html>
